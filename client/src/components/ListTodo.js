@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import EditTodo from './EditTodo';
 
 export default function ListTodo() {
 
@@ -20,7 +21,7 @@ export default function ListTodo() {
             const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`,{
                 method:"DELETE"
             });
-            console.log(deleteTodo)
+            // setTodos(todos.filter(todo => todo.todo_id !== id))
         } catch (err) {
             console.error(err.message)
         }
@@ -41,17 +42,11 @@ export default function ListTodo() {
                     </tr>
                 </thead>
                 <tbody>
-                    {/*  <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    */}
                     {
                         todos.map(todo => (
                             <tr key={todo.todo_id}>
                                 <td>{todo.description}</td>
-                                <td><button  style={{ background: "none", border: "none", outline: "none" }}><i style={{ color: "#34c3eb" }} className="fas fa-edit"></i></button></td>
+                                <td><EditTodo todo={todo}/></td>
                                 <td><button onClick={() => deleteTodo(todo.todo_id)} style={{ background: "none", border: "none", outline: "none" }}><i style={{ color: "red" }} className="fas fa-times"></i></button></td>
                             </tr>
 
