@@ -12,7 +12,8 @@ export default function InputTodo() {
                 headers:{"Content-Type":"application/json"},
                 body:JSON.stringify(body)
             })
-            console.log(response)
+            //so it refreshes and shows  the changes
+            window.location ="/";
         } catch (err) {
             console.error(err.message)
 
