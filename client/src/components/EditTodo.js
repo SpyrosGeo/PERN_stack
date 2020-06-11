@@ -25,7 +25,7 @@ export default function EditTodo({ todo }) {
     return (
         <div>
             <button data-toggle="modal" data-target={`#id${todo.todo_id}`} style={{ background: "none", border: "none", outline: "none" }}><i style={{ color: "#34c3eb" }} className="fas fa-edit"></i></button>
-            <div className="modal" id={`id${todo.todo_id}`}>
+            <div className="modal" id={`id${todo.todo_id}`} onClick={() => setDescription(todo.description)}>
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
